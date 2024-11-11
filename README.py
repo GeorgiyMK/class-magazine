@@ -7,10 +7,13 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
 
+    def add_courses(self, course_name):
+        self.finished_courses.append(course_name)
+
     def rate_lecturer(self, lecturer, course,grade):
         if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress:
             if course in lecturer.grades:
-                lecturer.grades[course] +=[grade]
+                lecturer.grades[course].append(grade)
             else:
                 lecturer.grades[course] = [grade]
         else:
