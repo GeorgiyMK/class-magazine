@@ -19,16 +19,40 @@ class Student:
         else:
             return 'Ошибка'
 
+    def average_grade(self):
+        total = 0
+        count = 0
+        for grades in self.grades.values():
+            total += sum(grades)
+            count += len(grades)
+        return total / count if count > 0 else 0
+
+    def __str__(self):
+        return f'Имя: {self.name}\n Фамилия: {self.surname}\n Средняя оценка за домашние задания: {self.average_grade()}\n Курсы в процессе изучения: {self.courses_in_progress}\n Завершенные курсы:{self.finished_courses}'
+
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
         self.courses_attached = []
+    def __str__(self):
+        return f ''
+        
 
 class Lecturer(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.grades = {}
+    def average_grade(self):
+        total = 0
+        count = 0
+        for grades in self.grades.values():
+            total += sum(grades)
+            count += len(grades)
+        return total / count if count > 0 else 0
+
+    def __str__(self):
+        return f'Имя: {self.name}\n Фамилия: {self.surname}\n Средняя оценка за лекции: {self.average_grade()}'
 
 class Reviewer(Mentor):
 
@@ -43,6 +67,8 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
+    def __str__(self):
+        return f'Имя: {self.name}\n Фамилия: {self.surname}'
 
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.finished_courses += ['Git']
