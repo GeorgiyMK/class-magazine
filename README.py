@@ -35,10 +35,7 @@ class Mentor:
         self.name = name
         self.surname = surname
         self.courses_attached = []
-    def __str__(self):
-        return f ''
-        
-
+   
 class Lecturer(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
