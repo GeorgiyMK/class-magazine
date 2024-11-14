@@ -28,7 +28,7 @@ class Student:
         return total / count if count > 0 else 0
 
     def __str__(self):
-        return f'Имя: {self.name}\n Фамилия: {self.surname}\n Средняя оценка за домашние задания: {self.average_grade()}\n Курсы в процессе изучения: {self.courses_in_progress}\n Завершенные курсы:{self.finished_courses}'
+        return f'Имя: {self.name}\n Фамилия: {self.surname}\nСредняя оценка за домашние задания: {self.average_grade()}\nКурсы в процессе изучения: {self.courses_in_progress}\nЗавершенные курсы:{self.finished_courses}'
 
 class Mentor:
     def __init__(self, name, surname):
@@ -52,7 +52,7 @@ class Lecturer(Mentor):
         return total / count if count > 0 else 0
 
     def __str__(self):
-        return f'Имя: {self.name}\n Фамилия: {self.surname}\n Средняя оценка за лекции: {self.average_grade()}'
+        return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.average_grade()}'
 
 class Reviewer(Mentor):
 
@@ -68,7 +68,7 @@ class Reviewer(Mentor):
         else:
             return 'Ошибка'
     def __str__(self):
-        return f'Имя: {self.name}\n Фамилия: {self.surname}'
+        return f'Имя: {self.name}\nФамилия: {self.surname}'
 
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.finished_courses += ['Git']
