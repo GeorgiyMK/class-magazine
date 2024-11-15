@@ -35,6 +35,26 @@ class Student:
             return self.average_grade() >= other.average_grade()
         return NotImplemented
 
+    def __eq__(self, other):
+        if isinstance(other, Student):
+            return self.average_grade() == other.average_grade()
+        return NotImplemented
+
+    def __lt__(self, other):
+        if isinstance(other, Student):
+            return self.average_grade() < other.average_grade()
+        return NotImplemented
+
+    def __gt__(self, other):
+        if isinstance(other, Student):
+            return self.average_grade() > other.average_grade()
+        return NotImplemented
+
+    def __le__(self, other):
+        if isinstance(other, Student):
+            return self.average_grade() <= other.average_grade()
+        return NotImplemented
+
     def __str__(self):
         return (f'Имя: {self.name}\n Фамилия: {self.surname}\n'
                 f'Средняя оценка за домашние задания: {self.average_grade()}\n'
@@ -62,6 +82,26 @@ class Lecturer(Mentor):
     def __ge__(self, other):
         if isinstance(other, Lecturer):
             return self.average_grade() >= other.average_grade()
+        return NotImplemented
+
+    def __eq__(self, other):
+        if isinstance(other, Lecturer):
+            return self.average_grade() == other.average_grade()
+        return NotImplemented
+
+    def __lt__(self, other):
+        if isinstance(other, Lecturer):
+            return self.average_grade() < other.average_grade()
+        return NotImplemented
+
+    def __gt__(self, other):
+        if isinstance(other, Lecturer):
+            return self.average_grade() > other.average_grade()
+        return NotImplemented
+
+    def __le__(self, other):
+        if isinstance(other, Lecturer):
+            return self.average_grade() <= other.average_grade()
         return NotImplemented
 
     def __str__(self):
@@ -127,3 +167,10 @@ best_reviewer.courses_attached += ['Python']
 worst_reviewer = Reviewer('Иосиф', 'Кобзон')
 worst_reviewer.courses_attached += ['Python']
 
+worst_student.rate_lecturer(worst_lecturer, 'Python',9)
+
+best_reviewer.rate_student(worst_student, 'Python', 10)
+
+print(worst_lecturer.average_grade())
+
+print(best_student > worst_student)
